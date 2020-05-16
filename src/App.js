@@ -1,12 +1,14 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import logo from './logo.svg'
+import './App.css'
+import { Tag } from './components'
 
-function App() {
+function App () {
+  const [visible,setVisible]  = React.useState(true);
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={logo} className="App-logo" alt="logo"  />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -18,9 +20,11 @@ function App() {
         >
           Learn React
         </a>
+        <button onClick={() => setVisible(!visible)}>显示</button>
+        <Tag color={'red'} visible={visible}>标签</Tag>
       </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

@@ -1,0 +1,193 @@
+@import '../styles/normalize.scss';
+
+$prefixCls: wui-button;
+$primary-color: #31c27c;
+$warning-color: #fca130;
+$error-color: #f93e3e;
+$success-color: #35c613;
+$info-color: #61affe;
+$default-color: #d9d9d9;
+
+// 空心样式
+@mixin wui-button-theme-color-hollow($color, $lighten: 5%) {
+  color: $color;
+  background-color: transparent;
+  text-shadow: unset;
+  &.btn-dashed {
+    border: 1px dashed $color;
+  }
+}
+
+@mixin wui-button-theme-color-hover(
+  $color: $default-color,
+  $lighten: 5%,
+  $font-color: #fff
+) {
+  border: 1px solid $color;
+  background-color: lighten($color, $lighten);
+  color: lighten($font-color, $lighten);
+  &.deer-ui-button-btn-default {
+    &:active,
+    &:focus {
+      border: 1px solid $primary-color;
+      color: lighten($primary-color, $lighten);
+    }
+  }
+}
+
+.#{$prefixCls} {
+  display: inline-block;
+
+  &-btn {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0 30px;
+    font-size: 14px;
+    height: 40px;
+    touch-action: manipulation;
+    white-space: nowrap;
+    background-image: none;
+    text-align: center;
+    border-radius: 5px;
+    text-shadow: none;
+    vertical-align: middle;
+    &.btn-size-small {
+      font-size: 12px;
+      padding: 0 10px;
+      height: 30px;
+      &-circle {
+        border-radius: 50%;
+        padding: 0;
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    &.btn-size-large {
+      font-size: 16px;
+      padding: 0 40px;
+      height: 50px;
+      &.btn-shape-circle {
+        border-radius: 50%;
+        padding: 0;
+        width: 50px;
+        height: 50px;
+      }
+    }
+
+    &-default {
+      color: rgba(0, 0, 0, 0.65);
+      background-color: #fff;
+      border: 1px solid #d9d9d9;
+      text-shadow: none;
+      &.btn-shape-circle {
+        border-radius: 50%;
+        padding: 0;
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    &-primary {
+      @include wui-button-theme-color-hover($primary-color);
+      &.btn-hollow {
+        @include wui-button-theme-color-hollow($primary-color);
+      }
+      &.btn-shape-circle {
+        border-radius: 50%;
+        padding: 0;
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    &-success {
+      @include wui-button-theme-color-hover($success-color);
+      &.btn-hollow {
+        @include wui-button-theme-color-hollow($success-color);
+      }
+      &.btn-circle {
+        border-radius: 50%;
+        padding: 0;
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    &-warning {
+      @include wui-button-theme-color-hover($warning-color);
+      &.btn-hollow {
+        @include wui-button-theme-color-hollow($warning-color);
+      }
+      &.btn-circle {
+        border-radius: 50%;
+        padding: 0;
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    &-info {
+      @include wui-button-theme-color-hover($info-color);
+      &.btn-hollow {
+        @include wui-button-theme-color-hollow($info-color);
+      }
+      &.btn-circle {
+        border-radius: 50%;
+        padding: 0;
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    &-error {
+      @include wui-button-theme-color-hover($error-color);
+      &.btn-hollow {
+        @include wui-button-theme-color-hollow($error-color);
+      }
+      &.btn-circle {
+        border-radius: 50%;
+        padding: 0;
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    &-link {
+    }
+
+    // &.btn-shape-circle {
+    //   border-radius: 50%;
+    //   padding: 0;
+    //   width: 40px;
+    //   height: 40px;
+    // }
+
+    &.btn-disabled {
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+
+    &.btn-hollow {
+      background: transparent;
+      text-shadow: unset;
+    }
+    &.btn-block {
+      width: 100%;
+    }
+    &.btn-dashed {
+      border: 1px dashed #e8e8e8;
+      &.btn-circle {
+        border-radius: 50%;
+        padding: 0;
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
+
+  &-block {
+    width: 100%;
+  }
+}

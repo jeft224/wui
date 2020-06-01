@@ -1,7 +1,7 @@
 import React from 'react'
 import logo from './logo.svg'
 import './App.css'
-import { Tag } from './components'
+import { Tag, Button } from './components'
 
 function App () {
   const [visible,setVisible]  = React.useState(true);
@@ -22,6 +22,7 @@ function App () {
         </a>
         <button onClick={() => setVisible(!visible)}>显示</button>
         <Tag color={'red'} visible={visible}>标签</Tag>
+        <Button type='primary' shape='circle'>显示</Button>
       </header>
     </div>
   )
